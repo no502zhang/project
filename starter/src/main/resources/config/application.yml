@@ -1,0 +1,34 @@
+server:
+  port: 8020
+  servlet:
+    context-path: /project
+spring:
+  application:
+    name: project
+
+# 数据库
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.105:3306/dev?useUnicode=true&characterEncoding=utf8
+    username: zhang
+    password: 123456
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+# redis
+  redis:
+    host: 192.168.1.105
+    port: 6379
+    Pool:
+      maxIdle: 10
+      maxActive: 10
+
+#log
+logging:
+  config: classpath:config/logback-spring.xml
+  path: /application/log/project_logs
+
